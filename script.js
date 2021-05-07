@@ -5,17 +5,22 @@ let lastElmentKey;
 window.onload = function() {
   taskArray = new Map(JSON.parse(localStorage.taskArray));
   if (taskArray.size > 0) {
-    // console.log(taskArray);
     putValueFromLocalStorage();
   }
 }
 
 function putValueFromLocalStorage() {
+  taskArray = new Map(JSON.parse(localStorage.taskArray));
   taskArray.forEach((value, key) => {
     task.innerHTML += `
     <div class="taskItem" id="${key}">
-      <button onclick='deleteTask("${key}")'>Done</button> 
-      ${value}
+      <button class="taskButton"onclick='deleteTask("${key}")'>Done</button>
+      <div>
+        <ul>
+            <li> ${value.description}</li>
+            <li> Finish task until ${value.date}</li>
+        </ul>
+      </div>
     </div>`;
   });
  
@@ -23,16 +28,23 @@ function putValueFromLocalStorage() {
 
 function changeValue() {
   let fieldVaule = document.getElementById("textInput").value.trim();
+  let dateVaule = document.getElementById("dateInput").value;
+  let importanceValue = document.getElementById("importance").value;
   let fieldID = uuidv4()
+
+  console.log(dateVaule, 'vrednost datuma');
  
   if (!taskArray.has(fieldID) && fieldVaule !== "") {
-    let newTask = new ToDoApp(fieldVaule, fieldVaule, fieldVaule);
+    let newTask = new ToDoApp(fieldVaule, dateVaule, importanceValue);
+    console.log(newTask);
     taskArray.set(fieldID, newTask);
     lastElmentKey = fieldID;
     addElementInBoard();
   }
 
   document.getElementById("textInput").value = "";
+  document.getElementById("dateInput").value = "";
+  document.getElementById("importance").value = "";
   localStorage.taskArray = JSON.stringify(Array.from(taskArray.entries()));
 }
 
@@ -40,7 +52,13 @@ function addElementInBoard() {
   let elName = taskArray.get(lastElmentKey);
   task.innerHTML += `
     <div class="taskItem" id="${lastElmentKey}">
-      <button onclick='deleteTask("${lastElmentKey}")'>Done</button>${elName.description}
+      <button class="taskButton"onclick='deleteTask("${lastElmentKey}")'>Done</button>
+      <div>
+        <ul>
+            <li> ${elName.description}</li>
+            <li> Finish task until ${elName.date}</li>
+        </ul>
+      </div>
     </div>`;
 }
 

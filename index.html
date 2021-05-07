@@ -14,13 +14,22 @@
         <legend>ENTER TASKS</legend>
         <div class="wraperInputButton">
           <input type="text" name="text" id="textInput" />
+          <div class="secondDivInput"> 
+            <input type="date" name="date" id="dateInput" placeholder="Date" />
+            <select name="importance" id="importance" placeholder="importance">
+              <option value="" disabled selected>Importance</option>
+              <option value="high">High</option>
+              <option value="midle">Midle</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
           <button onclick="changeValue()">ok</button>
         </div>
       </fieldset>
 
       <fieldset>
         <div class="taskBoard">
-          <legend> MY TASKS</legend>
+          <legend>MY TASKS</legend>
         </div>
       </fieldset>
     </div>
