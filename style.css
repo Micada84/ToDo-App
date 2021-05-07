@@ -1,0 +1,67 @@
+#textInput{
+    width: 80%;
+    height: 50px;
+    font-size: 18px;
+    border: none;
+}
+fieldset{
+    width: 600px;
+    border: dotted white 3px;
+    margin-bottom: 30px;
+}
+legend{
+    color:white;
+    font-size: 34px;
+}
+.mainDiv{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    background-image:url('assets/image.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+button{
+    border-radius: 50%;
+    background-color:green;
+    height: 60px;
+    width: 60px;
+    font-size: 18px;
+    border: white solid 3px;
+    margin-right: 10px;
+    color:white;
+    font-weight: 700;
+}
+.wraperInputButton{
+   width:100%;
+   display: flex;
+   flex-direction:row;
+   background-color: white;
+   opacity:0.7;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 20px;
+
+}
+.taskBoard{
+    width: 80%;
+}
+.taskItem{
+    margin-top: 2em;
+    padding-left: 20px;
+    width:100%;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:23px;
+    background-color: white;
+    opacity:0.7;
+    font-weight: 700;
+
+}
