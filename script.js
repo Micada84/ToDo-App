@@ -14,7 +14,7 @@ function putValueFromLocalStorage() {
   taskArray.forEach((value, key) => {
     task.innerHTML += `
     <div class="taskItem" id="${key}">
-      <button onclick='deliteTask("${key}")'>Done</button> 
+      <button onclick='deleteTask("${key}")'>Done</button> 
       ${value}
     </div>`;
   });
@@ -40,12 +40,11 @@ function addElementInBoard() {
   let elName = taskArray.get(lastElmentKey);
   task.innerHTML += `
     <div class="taskItem" id="${lastElmentKey}">
-      <button onclick='deliteTask("${lastElmentKey}")'>Done</button>${elName.description}
+      <button onclick='deleteTask("${lastElmentKey}")'>Done</button>${elName.description}
     </div>`;
 }
 
-function deliteTask(par) {
-  console.log(">>>>>" + par);
+function deleteTask(par) {
   taskArray.delete(par);
   let deletedItem = document.getElementById(`${par}`)
   console.log(deletedItem);
