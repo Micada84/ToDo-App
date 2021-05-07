@@ -46,7 +46,6 @@ function addElementInBoard() {
 
 function deliteTask(par) {
   console.log(">>>>>" + par);
-  //let id = par.getAttribute("id");
   taskArray.delete(par);
   let deletedItem = document.getElementById(`${par}`)
   console.log(deletedItem);
